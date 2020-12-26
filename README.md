@@ -1,2 +1,2 @@
 # minorproject
-A ecommerce for real  state website in Django
+A real state ecommerce website in Django
