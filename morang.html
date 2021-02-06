@@ -7,7 +7,7 @@
     <title>Real State In Nepal</title>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link href="css/style.css" type="text/css" rel="Stylesheet" />
+    <link href="css/morang.css" type="text/css" rel="Stylesheet" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/95dc93da07.js"></script>
@@ -18,7 +18,7 @@
     <div id="header-hero-container">
         <header>
             <div class="flex container">
-              <a href="index.html" ><img src="img/logo.jpeg"  alt="logo" style="width:70px;"></a>
+               <a href="index.html"><img src="img/logo.jpeg"  href="index.html"alt="logo" style="width:80px;"></a> 
                 <nav>
                     <button id="nav-toggle" class="hamburger-menu">
                         <span class="strip"></span>
@@ -40,7 +40,7 @@
                                         </a>
                                         <div  class="dropdown1-submenu">
                                             <a href="morang.html"> Morang</a>
-                                            <a href="#"> Sunsari</a>
+                                            <a href="#"> 3rd level</a>
                                         </div>
                                     </div>
                 
@@ -49,49 +49,38 @@
                                             <i class="fa fa-caret-right"></i>
                                         </a>
                                         <div class="dropdown2-submenu">
-                                            <a href="#"> Siraha</a>
-                                            <a href="#"> Saptari</a>
+                                            <a href="#"> 2nd level</a>
+                                            <a href="#"> 3rd level</a>
                                         </div>
                                     </div>
-                                    <div href="#" class="second-dropdown active">
-                                        <a style="font-size:medium" href="#">Pradesh 3
-                                            <i class="fa fa-caret-right"></i>
-                                        </a>
-                                        <div class="dropdown2-submenu">
-                                            <a href="#"> Chitwan</a>
-                                            <a href="#"> Kathmandu</a>
-                                        </div>
+                                    <a style="font-size:medium" href="#" class="active">Pradesh 3</a>
+                                </div>
+                            </div>
                         </li>
                         <li><a href="#" class="active">News</a></li>
                         <li><a href="#" class="active">Contact Us</a></li>
-                        <li><a href="#" class="active">Login</a></li>
-                        <li><a href="#" class="active">Sign Up</a></li>
+                        
                         <li id="close-flyout"><span class="fas fa-times"></span></li>
                     </ul>
                 </nav>
             </div>
         </header>
         
-        <section id="hero">
-            
-            <div class="fade"></div>
-            <div class="hero-text">
-                
-                <h1>Buy and sell real estate properties</h1>
-                
-            </div>
-        </section>
+
     </div>
 
-    <section id="properties">
+
+   
+    
+ <section id="properties">
         <div class="container">
-            <h2>Properties</h2>
+            <h2>Properties In Morang</h2>
             <div id="properties-slider" class="slick">
                 <div>
-                    <img src="img/aa121e2010448532595792934d72e517.jpg" alt="Property 1" />
+                 <a href="morang1details.html">   <img src="img/aa121e2010448532595792934d72e517.jpg" alt="Property 1"/></a>
                     <div class="property-details">
                         <span class="fas fa-map-marker"> Tinkune,Kathmandu</span>
-                      <p class="price">Rs.34,00,000</p>
+                      <p class="price">Rs.3,40,00,000</p>
                       <span class="sqft">4,250 sqft.</span>
                     </div>
                 </div>
@@ -143,44 +132,6 @@
     </section>
 
     
-
-    <section id="services">
-        <div class="container">
-            <h2>Services</h2>
-            <div class="flex">
-                <div>
-                    <div class="fas fa-home"></div>
-                    <div class="services-card-right">
-                        <h3>Search Property</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                        <a href="#">Learn More</a>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="fas fa-dollar-sign"></div>
-                    <div class="services-card-right">
-                        <h3>Buy Property</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                        <a href="#">Learn More</a>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="fas fa-chart-line"></div>
-                    <div class="services-card-right">
-                        <h3>Investing</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                        <a href="#">Learn More</a>
-                    </div>
-                </div>
-
-                
-
-                
-            </div>
-        </div>
-    </section>
 
 
     <section id="contact">
@@ -312,7 +263,7 @@
                } else {
                    navMenu.removeClass('is-sticky');
                    logo.css('color', '#fff');
-                   headerElem.css('background', 'transparent');
+                   headerElem.css("color", "#000000");
                    navToggle.css('bordre-color', '#fff');
                    navToggle.find('.strip').css('background-color', '#fff');
                }
