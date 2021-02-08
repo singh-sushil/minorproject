@@ -28,7 +28,7 @@
                     </button>
 
                     <ul id="nav-menu">
-                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="{% url 'accounts:profile' %}" class="active">Home</a></li>
                         <li>
                             <div class="dropdown">
                                 <div class="dropbtn"><a href="#" class="active">Categories</a>
@@ -66,10 +66,11 @@
                                     </div>
                                 </div>
                         </li>
-                        <li><a href="#" class="active">News</a></li>
-                        <li><a href="#" class="active">Contact Us</a></li>
-                        <li><a href="#" class="active">Login</a></li>
-                        <li><a href="#" class="active">Sign Up</a></li>
+                        <li><a href="{% url 'post:postform' %}" class="active">Post</a></li>
+                        <li><a href="{% url 'post:post_list' %}" class="active">See Post</a></li>
+                        <li><a href="{% url 'feedback:myformview' %}" class="active">Give Feedback</a></li>
+                        <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
+                        <li><a href="{% url 'accounts:logout' %}" class="active">Logout</a></li>
                         <li id="close-flyout"><span class="fas fa-times"></span></li>
                     </ul>
                 </nav>
