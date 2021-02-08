@@ -12,9 +12,9 @@ class Post(models.Model):
     phone_number = models.CharField(
         validators=[phone_regex], max_length=13)  # validators should be a list
     url_location = models.URLField(max_length=200, null=True)
-    amount = models.IntegerField(null=True)
-    length = models.IntegerField(null=True)
-    breadth = models.IntegerField(null=True)
+    amount = models.PositiveIntegerField(null=True)
+    length = models.PositiveIntegerField(null=True)
+    breadth = models.PositiveIntegerField(null=True)
     image1 = models.ImageField(upload_to='images/', default=True)
     image2 = models.ImageField(upload_to='images/', default=True)
     image3 = models.ImageField(upload_to='images/', default=True)
