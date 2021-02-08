@@ -14,3 +14,6 @@ class Profile(TemplateView):
 
 class MorangView(TemplateView):
     template_name = 'morang.html'
+
+class MorangDetailView(TemplateView):
+    template_name = 'morang1details.html'
