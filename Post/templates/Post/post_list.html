@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Posts From the customer!!! </h1>
+    <br>
+    <ul>
+        {% for post in object_list %}
+        <ul>
+                <li><h4>Name: {{ post.Name }}</h4></li>
+                <li><h4>Address: {{ post.Address }}</h4></li>
+                <li><h4>Phone Number: {{ post.phone_number }}</h4></li>
+                <li><h4>Google location Url: {{ post.url_location }}</h4></li>
+                <li><h4>Amount: Rs {{ post.amount }}</h4></li>
+                <li><h4>Property Length: {{ post.length }}</h4></li>
+                <li><h4>Property Breadth: {{ post.breadth }}</h4></li>
+                <img src="{{post.image1.url}}" alt="img" width="260" height="200">
+                <img src="{{ post.image2.url }}" alt="img" width="260" height="200">
+                <img src="{{ post.image3.url }}" alt="img" width="260" height="200">
+                <img src="{{ post.image4.url }}" alt="img" width="260" height="200">
+        </ul>
+        <br>
+        {% endfor %}
+{% endblock %}
