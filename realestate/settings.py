@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'locationandfeedback',
     'accounts',
     'Post',
-    'phone_field',
     'bootstrap3',
+    'phone_field',
 ]
 
 MIDDLEWARE = [
