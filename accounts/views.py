@@ -10,7 +10,7 @@ class SignUp(CreateView):
 
 
 class Profile(TemplateView):
-    template_name = 'index.html'
+    template_name = 'profile.html'
 
 class MorangView(TemplateView):
     template_name = 'morang.html'
