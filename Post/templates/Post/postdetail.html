@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+  {% for post in object_list %}
     <img src="{{post.image1.url}}" alt="img" width="100%" > </a> 
                                 <div class="carousel-caption">
                                         <h3>Jan Smith</h3>
@@ -38,5 +39,6 @@
                 <li><h4>Property Length: {{ post.length }}</h4></li>
                 <li><h4>Property Breadth: {{ post.breadth }}</h4></li>
         </ul>
+        {% endfor %}
 </body>
 </html>

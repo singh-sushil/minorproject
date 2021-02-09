@@ -56,3 +56,8 @@ header ul li {
     display: inline-block;
     margin: 0 15px;
 }
+details ul li{
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+}

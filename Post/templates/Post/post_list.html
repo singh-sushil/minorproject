@@ -62,17 +62,17 @@
                               </div>
                         
                               <div class="item">
-                                <img src="{{ post.image2.url }}" alt="img" width="100%" >
+                                <a href="{% url 'post:post_detail' %}"> <img src="{{ post.image2.url }}" alt="img" width="100%" ></a>
                               </div>
                             
                               <div class="item">
                                 
-                                <img src="{{ post.image3.url }}" alt="img" width="100%" >
+                                <a href="{% url 'post:post_detail' %}"> <img src="{{ post.image3.url }}" alt="img" width="100%" ></a>
                               </div>
                               
                               <div class="item">
                                 
-                                <img src="{{ post.image4.url }}" alt="img" width="100%">    
+                                <a href="{% url 'post:post_detail' %}"> <img src="{{ post.image4.url }}" alt="img" width="100%"> </a> 
                              </div>
                             </div>
                         
@@ -89,7 +89,9 @@
                         </div>
                         
                         </body>
-        <ul>
+         
+        <ul> 
+
                 <li><h4>Name: {{ post.Name }}</h4></li>
                 <li><h4>Address: {{ post.Address }}</h4></li>
                 <li><h4>Phone Number: {{ post.phone_number }}</h4></li>
@@ -97,7 +99,9 @@
                 <li><h4>Amount: Rs {{ post.amount }}</h4></li>
                 <li><h4>Property Length: {{ post.length }}</h4></li>
                 <li><h4>Property Breadth: {{ post.breadth }}</h4></li>
+                
         </ul>
+
         <br>
         {% endfor %}
 {% endblock %}
