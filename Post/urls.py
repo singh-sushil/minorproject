@@ -9,5 +9,6 @@ urlpatterns = [
     path('post_list/', views.Post_List.as_view(), name='post_list'),
     path('image_display/', views.ImageDisplay.as_view(), name='image_display'),
     path('success/', views.PostSuccess.as_view(), name='postsuccess'),
+    path("post_detail/", views.PostDetailView.as_view(), name="post_detail"),
 
 ]

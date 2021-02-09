@@ -17,3 +17,4 @@ class MorangView(TemplateView):
 
 class MorangDetailView(TemplateView):
     template_name = 'morang1details.html'
+    
