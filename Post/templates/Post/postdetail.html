@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+  {% load static%}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Details about post</title>
+    <link href="{% static 'css/postdetail.css' %}" type="text/css" rel="Stylesheet" />
 </head>
 <body>
   {% for post in object_list %}
-    <img src="{{post.image1.url}}" alt="img" width="100%" > </a> 
-                                <div class="carousel-caption">
-                                        <h3>Jan Smith</h3>
-                                        <span class="fas fa-map-marker"> Tinkune,Kathmandu</span>
-                                      </div>
-                              </div>
-                        
-                              <div class="item">
-                                <img src="{{ post.image2.url }}" alt="img" width="100%" >
-                              </div>
+  
+                                
+                        <div class="row">
+                            <div class="column">
+                             <img src="{{post.image1.url}}" alt="img" width="100%" >
+                            </div>
+                                  <div class="column">
+                                    <img src="{{ post.image2.url }}" alt="img" width="100%" >
+                                  </div>
                             
-                              <div class="item">
+                                  <div class="column">
                                 
                                 <img src="{{ post.image3.url }}" alt="img" width="100%" >
                               </div>
                               
-                              <div class="item">
+                              <div class="column">
                                 
                                 <img src="{{ post.image4.url }}" alt="img" width="100%">    
                              </div>

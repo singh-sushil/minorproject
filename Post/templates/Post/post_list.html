@@ -16,7 +16,7 @@
    
     <ul>
 
-        {% for post in object_list %}
+        
         
    
                
@@ -30,7 +30,7 @@
                         
                                             <ul id="nav-menu">
                                                 <li><a href="{% url 'homepage' %}" class="active" style="font-weight: bold;font-size: large;">Home</a></li>
-                                                <li><a href="{% url 'feedback:myformview' %}" class="active" style="font-weight: bold;font-size: large;">Give Feedback</a></li>
+                                              
                                                 <li><a href="{% url 'feedback:feedback_list' %}" class="active" style="font-weight: bold;font-size: large;">See Feedback</a></li>
                                                 <li><a href="{% url 'accounts:login' %}"  class="active" style="font-weight: bold;font-size: large;">Login</a></li>
                                                 <li><a href="{% url 'accounts:signup' %}"  class="active" style="font-weight: bold;font-size: large;">Sign up</a></li>
@@ -41,6 +41,7 @@
                                 </header>
                                                
                         <h1 style="text-align: center;">POST FROM CUTOMERS!!!</h1>
+                        {% for post in object_list %}
                         <div class="container"> 
                           <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
@@ -58,23 +59,44 @@
                                 <div class="carousel-caption">
                                         <h3>Jan Smith</h3>
                                         <span class="fas fa-map-marker"> Tinkune,Kathmandu</span>
+                                        <br>
+                                        <span class="fas fa-rupee-sign" style="font-weight: bold;"> Rs.34,00,00,000</span>
                                       </div>
                               </div>
                         
                               <div class="item">
                                 <a href="{% url 'post:post_detail' %}"> <img src="{{ post.image2.url }}" alt="img" width="100%" ></a>
+                                <div class="carousel-caption">
+                                  <h3>Jan Smith</h3>
+                                  <span class="fas fa-map-marker"> Tinkune,Kathmandu</span>
+                                  <br>
+                                  <span class="fas fa-rupee-sign" style="font-weight: bold;"> Rs.4,00,00,000</span>
+                                </div>
                               </div>
                             
                               <div class="item">
                                 
                                 <a href="{% url 'post:post_detail' %}"> <img src="{{ post.image3.url }}" alt="img" width="100%" ></a>
+                                <div class="carousel-caption">
+                                  <h3>Jan Smith</h3>
+                                  <span class="fas fa-map-marker"> Tinkune,Kathmandu</span>
+                                  <br>
+                                  <span class="fas fa-rupee-sign" style="font-weight: bold;"> Rs.84,00,00,000</span>
+                                </div>
                               </div>
                               
                               <div class="item">
                                 
                                 <a href="{% url 'post:post_detail' %}"> <img src="{{ post.image4.url }}" alt="img" width="100%"> </a> 
+                                <div class="carousel-caption">
+                                  <h3>Jan Smith</h3>
+                                  <span class="fas fa-map-marker"> Tinkune,Kathmandu</span>
+                                  <br>
+                                  <span class="fas fa-rupee-sign" style="font-weight: bold;"> Rs.44,00,00,000</span>
+                                </div>
                              </div>
                             </div>
+                            
                         
                             <!-- Left and right controls -->
                             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -87,22 +109,14 @@
                             </a>
                           </div>
                         </div>
+                       
                         
                         </body>
          
-        <ul> 
-
-                <li><h4>Name: {{ post.Name }}</h4></li>
-                <li><h4>Address: {{ post.Address }}</h4></li>
-                <li><h4>Phone Number: {{ post.phone_number }}</h4></li>
-                <li><h4>Google location Url: {{ post.url_location }}</h4></li>
-                <li><h4>Amount: Rs {{ post.amount }}</h4></li>
-                <li><h4>Property Length: {{ post.length }}</h4></li>
-                <li><h4>Property Breadth: {{ post.breadth }}</h4></li>
-                
-        </ul>
+        
 
         <br>
-        {% endfor %}
+
+{% endfor %}    
 {% endblock %}
 </html>
