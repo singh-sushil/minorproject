@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse,JsonResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import TemplateView, DetailView, ListView
@@ -18,10 +18,13 @@ class PostFormView(View):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
-
+        
         if form.is_valid():
             form.save()
             # return HttpResponseRedirect(reverse_lazy('post:image_display', kwargs={'pk': obj.id}))
+            pm=form.cleaned_data.get("payment_method")
+            if pm=="Khalti":
+                return redirect(reverse("post:khaltirequest"))
             return redirect('/post/success/')
         return render(request, self.template_name, {'form': form})
 
@@ -32,9 +35,13 @@ class ImageDisplay(DetailView):
     context_object_name = 'abc'
 
 
-class Post_List(ListView):
+class Post_List_outside(ListView):
     model = Post
-    template_name = 'post_list.html'
+    template_name = 'post_list_outside.html'
+
+class Post_List_authenticated(ListView):
+    model=Post
+    template_name='post_list_authenticated.html'
 
 class PostDetailView(ListView):
     model = Post
@@ -42,3 +49,16 @@ class PostDetailView(ListView):
 
 class PostSuccess(TemplateView):
     template_name = 'post_success.html'
+
+class KhaltiRequestView(View):
+    def get(self,request,*args,**kwargs):
+        context={
+
+        }
+        return render(request,"khaltirequest.html",context)
+
+class KhaltiVerifyView(View):
+    def get(self,request,*args,**kwargs):
+        data={}
+        return JsonResponse(data)
+

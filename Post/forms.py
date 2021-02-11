@@ -6,4 +6,17 @@ class PostForm(forms.ModelForm):
 
     class Meta():
         model = Post
-        fields = '__all__'
+        fields = [
+            "Name",
+            "Address",
+            "phone_number",
+            "url_location",
+            "amount",
+            "length",
+            "breadth",
+            "image1",
+            "image2",
+            "image3",
+            "image4",
+            "payment_method",
+        ]

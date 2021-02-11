@@ -19,7 +19,7 @@
     <div id="header-hero-container">
         <header>
             <div class="flex container">
-              <a href="index.html" ><img src="{% static "images/logo.jpeg" %}"  alt="logo" style="width:70px;"></a>
+              <a href="{% url 'homepage' %}" ><img src="{% static "images/logo.jpeg" %}"  alt="logo" style="width:70px;"></a>
                 <nav>
                     <button id="nav-toggle" class="hamburger-menu">
                         <span class="strip"></span>
@@ -72,14 +72,14 @@
                         
                         <li><a href="{% url 'chat:home' %}" class="active">Contact</a></li>
                         <li><a href="{% url 'post:postform' %}" class="active">Post</a></li>
-                        <li><a href="{% url 'post:post_list' %}" class="active">See Post</a></li>
+                        <li><a href="{% url 'post:post_list_authenticated' %}" class="active">See Post</a></li>
                         <li><a href="{% url 'feedback:myformview' %}" class="active">Give Feedback</a></li>
                         <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
                         <li><a href="{% url 'accounts:logout' %}" class="active">Logout</a></li>
                         
     						        {% else %}
                        
-                        <li><a href="{% url 'post:post_list' %}" class="active">See Post</a></li>
+                        <li><a href="{% url 'post:post_list_outside' %}" class="active">See Post</a></li>
                         <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
     						        <li><a href="{% url 'accounts:login' %}"  class="active">Login</a></li>
     						        <li><a href="{% url 'accounts:signup' %}"  class="active">Sign up</a></li>
