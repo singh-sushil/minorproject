@@ -3,6 +3,10 @@ from phone_field import PhoneField
 from django.core.validators import RegexValidator
 # Create your models here.
 
+METHOD={
+    ("Khalti","Khalti"),
+    ("E-Sewa","E-Sewa"),
+}
 
 class Post(models.Model):
     Name = models.CharField(max_length=200)
@@ -19,6 +23,8 @@ class Post(models.Model):
     image2 = models.ImageField(upload_to='images/', default=True)
     image3 = models.ImageField(upload_to='images/', default=True)
     image4 = models.ImageField(upload_to='images/', default=True)
+    payment_method= models.CharField(max_length=20,choices=METHOD,default="Khalti")
+    payment_completed=models.BooleanField(default=False,null=True,blank=True)
 
     def __str__(self):
         return self.Name
