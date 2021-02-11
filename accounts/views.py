@@ -17,4 +17,10 @@ class MorangView(TemplateView):
 
 class MorangDetailView(TemplateView):
     template_name = 'morang1details.html'
+'''
+class UserInfo:
+    def __init__(self,request):
+        return request.user.id
+'''
+
     

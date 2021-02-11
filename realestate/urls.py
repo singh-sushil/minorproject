@@ -21,6 +21,7 @@ from . import views
 
 urlpatterns = [
     path('', views.Homepage.as_view(), name='homepage'),
+    path('chat/', include('chat.urls')),
     path('accounts/', include('accounts.urls')),
     path('post/', include('Post.urls')),
     path('feedback/', include('locationandfeedback.urls')),
