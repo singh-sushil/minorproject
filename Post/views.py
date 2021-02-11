@@ -43,9 +43,13 @@ class Post_List_authenticated(ListView):
     model=Post
     template_name='post_list_authenticated.html'
 
-class PostDetailView(ListView):
+class PostDetailAuthenticatedView(ListView):
     model = Post
-    template_name = 'postdetail.html'    
+    template_name = 'postdetailauthenticated.html'   
+
+class PostDetailOutsideView(ListView):
+    model = Post
+    template_name = 'postdetailoutside.html'  
 
 class PostSuccess(TemplateView):
     template_name = 'post_success.html'
