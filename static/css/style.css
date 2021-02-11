@@ -608,7 +608,7 @@ footer .footer-subscribe ul li a:hover {
     }
 
     #nav-toggle {
-        display: block;
+        display: inline-block;
     }
 
     nav ul {
@@ -684,20 +684,12 @@ footer .footer-subscribe ul li a:hover {
         width: 400px;
     }
 
-    #agents .card {
-        width: 49%;
-    }
-
     #the-best .flex > img {
         display: none;
     }
 
     #the-best .flex > div {
         width: 100%;
-    }
-
-    #testimonials-slider p {
-        font-size: 1.2rem;
     }
 
     #properties .container:before {
@@ -765,19 +757,6 @@ footer .footer-subscribe ul li a:hover {
 @media (max-width: 500px) {
     #hero .hero-text {
         width: 330px;
-    }
-
-    #agents {
-        margin: 4rem 0 3rem;
-        padding: 0 0 3rem;
-    }
-
-    #agents .card {
-        width: 100%;
-    }
-
-    #agents p.large-paragraph {
-        width: 100%;
     }
 
     #how-it-works .flex {

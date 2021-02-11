@@ -36,6 +36,9 @@ class Post_List(ListView):
     model = Post
     template_name = 'post_list.html'
 
+class PostDetailView(ListView):
+    model = Post
+    template_name = 'postdetail.html'    
 
 class PostSuccess(TemplateView):
     template_name = 'post_success.html'
