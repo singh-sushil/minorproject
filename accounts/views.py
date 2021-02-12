@@ -1,17 +1,19 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 from .forms import UserCreateForm
-
+from django.shortcuts import render
 
 class SignUp(CreateView):
     form_class = UserCreateForm
     success_url = reverse_lazy("accounts:login")
     template_name = "signup.html"
-
+'''
 
 class Profile(TemplateView):
     template_name = 'profile.html'
-
+'''
+def profile(request):
+    return render (request,'profile.html',{'uid':request.user.id})
 class MorangView(TemplateView):
     template_name = 'morang.html'
 

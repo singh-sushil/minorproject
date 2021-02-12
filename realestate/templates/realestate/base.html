@@ -70,7 +70,7 @@
                         </li>
                         {% if user.is_authenticated %}
                         
-                        <li><a href="{% url 'chat:home' %}" class="active">Contact</a></li>
+                        <li><a href="/chat/{{ uid }}" class="active">Contact</a></li>
                         <li><a href="{% url 'post:postform' %}" class="active">Post</a></li>
                         <li><a href="{% url 'post:post_list_authenticated' %}" class="active">See Post</a></li>
                         <li><a href="{% url 'feedback:myformview' %}" class="active">Give Feedback</a></li>
