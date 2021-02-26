@@ -19,7 +19,7 @@
     <div id="header-hero-container">
         <header>
             <div class="flex container">
-              <a href="index.html" ><img src="{% static "images/logo.jpeg" %}"  alt="logo" style="width:70px;"></a>
+              <a href="{% url 'homepage' %}" ><img src="{% static "images/logo.jpeg" %}"  alt="logo" style="width:70px;"></a>
                 <nav>
                     <button id="nav-toggle" class="hamburger-menu">
                         <span class="strip"></span>
@@ -69,17 +69,21 @@
                                         
                         </li>
                         {% if user.is_authenticated %}
+                            {% if user.is_superuser %}
+                                <li><a href="{% url 'accounts:contact' %}" class="active">Contact</a></li>
+                            {% else  %}
+                            <li><a href="/chat/{{ uid }}" class="active">Contact</a></li>
+                        
+                            {% endif %}
                         <li><a href="{% url 'post:postform' %}" class="active">Post</a></li>
-                        <li><a href="{% url 'post:post_list' %}" class="active">See Post</a></li>
-                        {% if user.is_superuser %}
-                        <li><a href="{% url 'post:post_draft_list' %}" class="active">Draft List</a></li>
-                        {% endif%}
+                        <li><a href="{% url 'post:post_list_authenticated' %}" class="active">See Post</a></li>
                         <li><a href="{% url 'feedback:myformview' %}" class="active">Give Feedback</a></li>
                         <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
                         <li><a href="{% url 'accounts:logout' %}" class="active">Logout</a></li>
-    						        {% else %}
+                        
+    					{% else %}
                        
-                        <li><a href="{% url 'post:post_list' %}" class="active">See Post</a></li>
+                        <li><a href="{% url 'post:post_list_outside' %}" class="active">See Post</a></li>
                         <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
     						        <li><a href="{% url 'accounts:login' %}"  class="active">Login</a></li>
     						        <li><a href="{% url 'accounts:signup' %}"  class="active">Sign up</a></li>
@@ -162,7 +166,7 @@
 
     
 
-    <section id="services">
+    <!-- <section id="services">
         <div class="container">
             <h2>Services</h2>
             <div class="flex">
@@ -170,28 +174,28 @@
                     <div class="fas fa-home"></div>
                     <div class="services-card-right">
                         <h3>Search Property</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                        <a href="#">Learn More</a>
+                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p> -->
+                        <!-- <a href="#">Learn More</a>
                     </div>
                 </div>
 
                 <div>
                     <div class="fas fa-dollar-sign"></div>
                     <div class="services-card-right">
-                        <h3>Buy Property</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                        <a href="#">Learn More</a>
+                        <h3>Buy Property</h3> -->
+                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p> -->
+                        <!-- <a href="#">Learn More</a>
                     </div>
-                </div>
+                </div> --> -->
 
-                <div>
+                <!-- <div>
                     <div class="fas fa-chart-line"></div>
                     <div class="services-card-right">
                         <h3>Investing</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
                         <a href="#">Learn More</a>
                     </div>
-                </div>
+                </div> -->
 
                 
 
@@ -201,7 +205,7 @@
     </section>
 
 
-    <section id="contact">
+    <!-- <section id="contact">
         <div class="container">
             <h2>Contact Us</h2>
 
@@ -238,7 +242,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <footer>
         <div class="flex container">

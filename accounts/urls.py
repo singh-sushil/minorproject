@@ -7,11 +7,10 @@ app_name = 'accounts'
 urlpatterns = [
     path("login/", auth_views.LoginView.as_view(
         template_name="login.html"), name='login'),
-    path("adminlogin/", auth_views.LoginView.as_view(
-        template_name="adminlogin.html"), name='adminlogin'),
-    path("profile/", views.Profile.as_view(), name="profile"),
+    path("profile/", views.profile, name="profile"),
     path("logout/", auth_views.LogoutView.as_view(template_name="logout.html"), name="logout"),
     path("signup/", views.SignUp.as_view(), name="signup"),
     path("morang/", views.MorangView.as_view(), name="morang"),
     path("morang_detail/", views.MorangDetailView.as_view(), name="morang_detail"),
+    path("contact/",views.contact,name='contact',)
 ]
