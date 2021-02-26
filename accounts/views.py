@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 from .forms import UserCreateForm
 from django.shortcuts import render
+from django.contrib.auth import get_user_model
 
 class SignUp(CreateView):
     form_class = UserCreateForm
@@ -24,5 +25,12 @@ class UserInfo:
     def __init__(self,request):
         return request.user.id
 '''
+def contact(request):
+    test = get_user_model()
+    userInfo = test.objects.all().filter(is_superuser=False)
+    print(userInfo)
+    return render(request,'contact.html',{'userinfo':userInfo})
+
+    
 
     
