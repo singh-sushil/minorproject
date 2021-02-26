@@ -1,10 +1,11 @@
 from django.http import HttpResponseRedirect, HttpResponse,JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.views.generic import TemplateView, DetailView, ListView
 from django.urls import reverse, reverse_lazy
 from .models import Post
 from .forms import PostForm
+from django.utils import timezone
 
 
 class PostFormView(View):
@@ -38,10 +39,15 @@ class ImageDisplay(DetailView):
 class Post_List_outside(ListView):
     model = Post
     template_name = 'post_list_outside.html'
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 class Post_List_authenticated(ListView):
     model=Post
     template_name='post_list_authenticated.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 class PostDetailAuthenticatedView(ListView):
     model = Post
@@ -53,6 +59,25 @@ class PostDetailOutsideView(ListView):
 
 class PostSuccess(TemplateView):
     template_name = 'post_success.html'
+
+
+class DraftListView(ListView):
+    model = Post
+    template_name = 'post_draft_list.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__isnull=True).order_by('created_date')
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'post_detail.html'
+
+
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.publish()
+    return redirect('post:post_list_authenticated')
 
 class KhaltiRequestView(View):
     def get(self,request,*args,**kwargs):

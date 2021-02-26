@@ -28,6 +28,9 @@
                     </button>
 
                     <ul id="nav-menu">
+                        {% if user.is_authenticated %}
+                        <li><a href="" class="active">Welcome : {{ user.username }}</a></li>
+                        {% endif %}
                         <li><a href="{% url 'homepage' %}" class="active">Home</a></li>
                         <li>
                             <div class="dropdown">
@@ -75,9 +78,16 @@
                             <li><a href="/chat/{{ uid }}" class="active">Contact</a></li>
                         
                             {% endif %}
+                            {% if not user.is_superuser %}
                         <li><a href="{% url 'post:postform' %}" class="active">Post</a></li>
+                            {% endif %}
                         <li><a href="{% url 'post:post_list_authenticated' %}" class="active">See Post</a></li>
+                        {% if user.is_superuser %}
+                        <li><a href="{% url 'post:post_draft_list' %}" class="active">Draft List</a></li>
+                        {% endif%}
+                        {% if not user.is_superuser %}
                         <li><a href="{% url 'feedback:myformview' %}" class="active">Give Feedback</a></li>
+                        {% endif %}
                         <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
                         <li><a href="{% url 'accounts:logout' %}" class="active">Logout</a></li>
                         
