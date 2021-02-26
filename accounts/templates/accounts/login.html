@@ -27,8 +27,12 @@
             <input type="submit" value="Login" class="btn btn-primary">
             </form>
             <br>
-            <p>Don't Have Account??</p>
+            <h4>Don't Have Account??</h4>
             <a class="btn btn-success" href="{% url 'accounts:signup' %}">SignUp</a>
+            <br>
+            <br>
+            <h4>Admin Login??</h4>
+            <a class="btn btn-info" href="{% url 'accounts:adminlogin' %}">Admin Login</a>
           {% endblock %}
         </div>
   </body>
