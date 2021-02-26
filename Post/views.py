@@ -22,9 +22,9 @@ class PostFormView(View):
         if form.is_valid():
             form.save()
             # return HttpResponseRedirect(reverse_lazy('post:image_display', kwargs={'pk': obj.id}))
-            pm=form.cleaned_data.get("payment_method")
-            if pm=="Khalti":
-                return redirect(reverse("post:khaltirequest"))
+            # pm=form.cleaned_data.get("payment_method")
+            # if pm=="Khalti":
+            #     return redirect(reverse("post:khaltirequest"))
             return redirect('/post/success/')
         return render(request, self.template_name, {'form': form})
 

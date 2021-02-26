@@ -7,16 +7,16 @@ class PostForm(forms.ModelForm):
     class Meta():
         model = Post
         fields = [
-            "Name",
+            "owners_name",
             "Address",
-            "phone_number",
-            "url_location",
+            "contact_number",
+            "location",
             "amount",
             "length",
-            "breadth",
+            "Area",
             "image1",
             "image2",
             "image3",
             "image4",
-            "payment_method",
+            "payment_verification_slip",
         ]
