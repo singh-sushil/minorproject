@@ -61,7 +61,7 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-             <a href="{% url 'post:post_detail_outside' %}"><img src="{{post.image1.url}}" alt="img" width="100%" > </a> 
+             <a href="{% url 'post:post_detail' pk=post.pk %}"><img src="{{post.image1.url}}" alt="img" width="100%" > </a> 
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.Name }}</h4></li>
                     <li> <span class="fas fa-map-marker" style="font-weight: bold;font-size: large;"> {{ post.Address }}</span></li> 
@@ -71,7 +71,7 @@
             </div>
       
             <div class="item">
-              <a href="{% url 'post:post_detail_outside' %}"> <img src="{{ post.image2.url }}" alt="img" width="100%" ></a>
+              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.image2.url }}" alt="img" width="100%" ></a>
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.Name }}</h4></li>
                <li> <span class="fas fa-map-marker" style="font-weight: bold;font-size: large;">  {{ post.Address }}</span></li>
@@ -82,7 +82,7 @@
           
             <div class="item">
               
-              <a href="{% url 'post:post_detail_outside' %}"> <img src="{{ post.image3.url }}" alt="img" width="100%" ></a>
+              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.image3.url }}" alt="img" width="100%" ></a>
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.Name }}</h4></li>
                <li> <span class="fas fa-map-marker" style="font-weight: bold;font-size: large;">  {{ post.Address }}</span></li>
@@ -93,7 +93,7 @@
             
             <div class="item">
               
-              <a href="{% url 'post:post_detail_outside' %}"> <img src="{{ post.image4.url }}" alt="img" width="100%"> </a> 
+              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.image4.url }}" alt="img" width="100%"> </a> 
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.Name }}</h4></li>
                <li> <span class="fas fa-map-marker" style="font-weight:bold;font-size: large;">  {{ post.Address }}</span></li>

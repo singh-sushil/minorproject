@@ -5,8 +5,6 @@ from django.db import models
 
 class Feedback(models.Model):
     feedback_text = models.CharField(max_length=200)
-    group=models.CharField(max_length=100,null=True)
-    student=models.CharField(max_length=100,null=True)
 
 
 class Rateapp(models.Model):

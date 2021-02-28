@@ -26,8 +26,6 @@ class MyFormView(View):
             f_app=Feedback()
             data=form.cleaned_data
             f_app.feedback_text=data['feedback_text']
-            f_app.group = request.POST.get('group')
-            f_app.student = request.POST.get('student')
             f_app.save()
             return redirect('/feedback/thankyou/')
         return render(request, self.template_name, {'form': form})
