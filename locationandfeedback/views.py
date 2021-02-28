@@ -19,11 +19,16 @@ class MyFormView(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
 
-        if form.is_valid() and request.POST.get('rateapp'):
-            form.save()
+        if form.is_valid():
             r_app = Rateapp()
             r_app.rateapp = request.POST.get('rateapp')
             r_app.save()
+            f_app=Feedback()
+            data=form.cleaned_data
+            f_app.feedback_text=data['feedback_text']
+            f_app.group = request.POST.get('group')
+            f_app.student = request.POST.get('student')
+            f_app.save()
             return redirect('/feedback/thankyou/')
         return render(request, self.template_name, {'form': form})
 

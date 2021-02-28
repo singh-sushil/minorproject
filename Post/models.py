@@ -10,6 +10,8 @@ METHOD={
 }
 
 class Post(models.Model):
+    province=models.CharField(max_length=100,null=True,blank=True)
+    district=models.CharField(max_length=100,null=True,blank=True)
     owners_name = models.CharField(max_length=200)
     Address = models.CharField(max_length=200)
     phone_regex = RegexValidator(

@@ -1,13 +1,57 @@
-{% extends "login.html" %}
-{% load bootstrap3 %}
-{% block content %}
-<div class="jumbotron">
-    <form  method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <br>
-        <input type="submit" class="btn btn-primary" value="Submit">
-    </form>
-</div>
-{% endblock %}
-   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Form</title>
+    <script>
+        var subjectObject = {
+            "province1": {
+                "Illam": 'mahaseth',
+                "Jhapa": 'ghimire'
+            },
+            "province2": {
+                "Siraha": 'ale',
+                "Saptari": 'singh'
+            }
+        }
+        window.onload = function () {
+            var subjectSel = document.getElementById("subject");
+            var topicSel = document.getElementById("topic");
+            for (var x in subjectObject) {
+                subjectSel.options[subjectSel.options.length] = new Option(x, x);
+            }
+            subjectSel.onchange = function () {
+                //empty Chapters- and Topics- dropdowns
+                topicSel.length = 1;
+                //display correct values
+                for (var y in subjectObject[this.value]) {
+                    topicSel.options[topicSel.options.length] = new Option(y, y);
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div class="jumbotron">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            Province: <select name="province" id="subject">
+                <option value="" selected="selected">Select Province</option>
+            </select>
+            <br><br>
+            District: <select name="district" id="topic">
+                <option value="" selected="selected">Please select Province First</option>
+            </select>
+            <br><br>
+            {{ form.as_p }}
+            <br>
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>
+

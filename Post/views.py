@@ -21,11 +21,23 @@ class PostFormView(View):
         form = self.form_class(request.POST, request.FILES)
         
         if form.is_valid():
-            form.save()
-            # return HttpResponseRedirect(reverse_lazy('post:image_display', kwargs={'pk': obj.id}))
-            # pm=form.cleaned_data.get("payment_method")
-            # if pm=="Khalti":
-            #     return redirect(reverse("post:khaltirequest"))
+            p = Post()
+            data = form.cleaned_data
+            p.province = request.POST.get('province')
+            p.district = request.POST.get('district')
+            p.owners_name=data['owners_name']
+            p.Address=data['Address']
+            p.contact_number=data['contact_number']
+            p.location=data['location']
+            p.amount=data['amount']
+            p.length=data['length']
+            p.Area=data['Area']
+            p.image1=data['image1']
+            p.image2=data['image2']
+            p.image3=data['image3']
+            p.image4 = data['image4']
+            p.payment_verification_slip = data['payment_verification_slip']
+            p.save()
             return redirect('/post/success/')
         return render(request, self.template_name, {'form': form})
 
