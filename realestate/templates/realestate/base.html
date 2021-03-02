@@ -40,36 +40,72 @@
                                 
                                 <div class="dropdown-content">
                                     <div class="first-dropdown active">
-                                        <a style="font-size:medium" href="#">Pradesh 1
+                                        <a style="font-size:medium" href="#">Pradesh No.1
                                             <i class="fa fa-caret-right"></i>
                                         </a>
                                         <div  class="dropdown1-submenu">
-                                            <a href="{% url 'accounts:morang' %}">morang</a>
-                                            <a href="#"> Sunsari</a>
+                                            <a href="{% url 'post:illam' %}">Illam</a>
+                                            <a href="{% url 'post:jhapa' %}"> Jhapa</a>
                                         </div>   
                                  </div>
                 
                               <div href="#" class="second-dropdown active">
-                                        <a style="font-size:medium" href="#">Pradesh 2
+                                        <a style="font-size:medium" href="#">Pradesh No.2
                                             <i class="fa fa-caret-right"></i>
                                         </a>
                                         <div class="dropdown2-submenu">
-                                            <a href="#"> Siraha</a>
-                                            <a href="#"> Saptari</a>
+                                            <a href="{% url 'post:saptari' %}"> Saptari</a>
+                                            <a href="{% url 'post:siraha' %}"> Siraha</a>
                                         </div>
                                 </div>
                                     <div href="#" class="second-dropdown active">
-                                        <a style="font-size:medium" href="#">Pradesh 3
+                                        <a style="font-size:medium" href="#">Bagmati Pradesh
                                             <i class="fa fa-caret-right"></i>
                                         </a>
                                         <div class="dropdown2-submenu">
-                                            <a href="#"> Chitwan</a>
-                                            <a href="#"> Kathmandu</a>
-                                        </div>  
+                                            <a href="{% url 'post:chitwan' %}">Chitwan</a>
+                                            <a href="{% url 'post:kathmandu' %}">Kathmandu</a>
+                                    </div>  
+                                </div>
+                                <div href="#" class="second-dropdown active">
+                                    <a style="font-size:medium" href="#">Gandaki Pradesh
+                                        <i class="fa fa-caret-right"></i>
+                                    </a>
+                                    <div class="dropdown2-submenu">
+                                        <a href="{% url 'post:kaski' %}">Kaski</a>
+                                        <a href="{% url 'post:tanahun' %}">Tanahun</a>
                                     </div>
+                                </div>
+                                <div href="#" class="second-dropdown active">
+                                    <a style="font-size:medium" href="#">Lumbini Pradesh
+                                        <i class="fa fa-caret-right"></i>
+                                    </a>
+                                    <div class="dropdown2-submenu">
+                                        <a href="{% url 'post:palpa' %}">Palpa</a>
+                                        <a href="{% url 'post:rupendehi' %}">Rupendehi</a>
+                                    </div>
+                                </div>
+                                <div href="#" class="second-dropdown active">
+                                    <a style="font-size:medium" href="#">Karnali Pradesh
+                                        <i class="fa fa-caret-right"></i>
+                                    </a>
+                                    <div class="dropdown2-submenu">
+                                        <a href="{% url 'post:dolpa' %}">Dolpa</a>
+                                        <a href="{% url 'post:humla' %}">Humla</a>
+                                    </div>
+                                </div>
+                                <div href="#" class="second-dropdown active">
+                                    <a style="font-size:medium" href="#">Sudurpaschim Pradesh
+                                        <i class="fa fa-caret-right"></i>
+                                    </a>
+                                    <div class="dropdown2-submenu">
+                                        <a href="{% url 'post:darchula' %}">Darchula</a>
+                                        <a href="{% url 'post:kailali' %}">Kailali</a>
+                                    </div>
+                                </div>
 
 
-                                        
+                                       
                         </li>
                         {% if user.is_authenticated %}
                             {% if user.is_superuser %}

@@ -62,7 +62,7 @@ TEMPLATES = [
                  BASE_DIR / 'locationandfeedback/templates/locationandfeedback',
                  BASE_DIR / 'accounts/templates/accounts',
                  BASE_DIR / 'Post/templates/Post',
-                 BASE_DIR / 'Post/templates/Categories', ],
+                 BASE_DIR / 'Post/templates/Post', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
