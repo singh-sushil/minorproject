@@ -32,10 +32,10 @@ class PostFormView(View):
             p.amount=data['amount']
             p.length=data['length']
             p.Area=data['Area']
-            p.image1=data['image1']
-            p.image2=data['image2']
-            p.image3=data['image3']
-            p.image4 = data['image4']
+            p.frontview=data['frontview']
+            p.leftsideview=data['leftsideview']
+            p.backsideview=data['backsideview']
+            p.rightsideview = data['rightsideview']
             p.payment_verification_slip = data['payment_verification_slip']
             p.save()
             return redirect('/post/success/')
