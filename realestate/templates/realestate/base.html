@@ -122,15 +122,15 @@
                         <li><a href="{% url 'post:post_draft_list' %}" class="active">Draft List</a></li>
                         {% endif%}
                         {% if not user.is_superuser %}
-                        <li><a href="{% url 'feedback:myformview' %}" class="active">Give Feedback</a></li>
+                        <!-- <li><a href="{% url 'feedback:myformview' %}" class="active">Give Feedback</a></li> -->
                         {% endif %}
-                        <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
+                        <!-- <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li> -->
                         <li><a href="{% url 'accounts:logout' %}" class="active">Logout</a></li>
                         
     					{% else %}
                        
                         <li><a href="{% url 'post:post_list_outside' %}" class="active">See Post</a></li>
-                        <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
+                        <!-- <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li> -->
     						        <li><a href="{% url 'accounts:login' %}"  class="active">Login</a></li>
     						        <li><a href="{% url 'accounts:signup' %}"  class="active">Sign up</a></li>
     						{% endif %}
@@ -290,7 +290,7 @@
         </div>
     </section> -->
 
-    <footer>
+    <!-- <footer>
         <div class="flex container">
             <div class="footer-about">
                 <h5>About Kinbech</h5>
@@ -323,7 +323,7 @@
                 </ul>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
     <script>
         
