@@ -9,7 +9,23 @@
 </head>
 
 <body>
-    
+    <div id="header-hero-container">
+        <header>
+            <div class="flex container">
+              <a href="{% url 'homepage' %}" ><img src="{% static "images/logo.jpeg" %}"  alt="logo" style="width:70px;"></a>
+                <nav>
+                    <button id="nav-toggle" class="hamburger-menu">
+                        <span class="strip"></span>
+                        <span class="strip"></span>
+                        <span class="strip"></span>
+                    </button>
+
+                    <ul id="nav-menu">
+                        {% if user.is_authenticated %}
+                        <li><a href="" class="active">Welcome : {{ user.username }}</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'homepage' %}" class="active">Home</a></li>
+                        <li>
     <h1><a class="navbar-brand mynav" href="{% url 'homepage' %}">Go Home</a></h1>
     <h4>Name: {{ post.owners_name }}</h4>
     <h4>Address: {{ post.Address }}</h4>
