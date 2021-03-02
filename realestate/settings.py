@@ -61,7 +61,8 @@ TEMPLATES = [
         'DIRS': [BASE_DIR / 'realestate/templates/realestate',
                  BASE_DIR / 'locationandfeedback/templates/locationandfeedback',
                  BASE_DIR / 'accounts/templates/accounts',
-                 BASE_DIR / 'Post/templates/Post', ],
+                 BASE_DIR / 'Post/templates/Post',
+                 BASE_DIR / 'Post/templates/Categories', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

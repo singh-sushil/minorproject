@@ -10,6 +10,8 @@ METHOD={
 }
 
 class Post(models.Model):
+    province=models.CharField(max_length=100,null=True,blank=True)
+    district=models.CharField(max_length=100,null=True,blank=True)
     owners_name = models.CharField(max_length=200)
     Address = models.CharField(max_length=200)
     phone_regex = RegexValidator(
@@ -20,10 +22,10 @@ class Post(models.Model):
     amount = models.PositiveIntegerField(null=True)
     length = models.PositiveIntegerField(null=True)
     Area = models.PositiveIntegerField(null=True)
-    image1 = models.ImageField(upload_to='images/', default=True)
-    image2 = models.ImageField(upload_to='images/', default=True)
-    image3 = models.ImageField(upload_to='images/', default=True)
-    image4 = models.ImageField(upload_to='images/', default=True)
+    frontview = models.ImageField(upload_to='images/', default=True)
+    leftsideview = models.ImageField(upload_to='images/', default=True)
+    backsideview = models.ImageField(upload_to='images/', default=True)
+    rightsideview = models.ImageField(upload_to='images/', default=True)
     payment_verification_slip= models.ImageField(upload_to='images/',default="True")
     
     created_date = models.DateTimeField(

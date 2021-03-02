@@ -7,11 +7,8 @@ app_name = 'accounts'
 urlpatterns = [
     path("login/", auth_views.LoginView.as_view(
         template_name="login.html"), name='login'),
-<<<<<<< HEAD
-=======
     path("adminlogin/", auth_views.LoginView.as_view(
         template_name="adminlogin.html"), name='adminlogin'),
->>>>>>> 56247c1e4cad82af3cf7665a312bd6fb139bb23b
     path("profile/", views.profile, name="profile"),
     path("logout/", auth_views.LogoutView.as_view(template_name="logout.html"), name="logout"),
     path("signup/", views.SignUp.as_view(), name="signup"),
