@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Draft List</title>
+</head>
+
+<body>
+    {% if user.is_superuser %}
+    <h1>Draft List</h1>
+    {% for post in object_list %}
+    <div class="post">
+        <h1><a href="{% url 'post:post_detail' pk=post.pk %}">{{ post.owners_name }}</a></h1>
+        <p class="date">created: {{ post.created_date|date:'d-m-Y'}}</p>
+        <p>{{ post.text|truncatechars:200 }}</p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1>Not Allowed : Admin Site Only!!!</h1>
+    {% endif %}
+</body>
+
+</html>

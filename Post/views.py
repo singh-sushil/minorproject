@@ -1,10 +1,11 @@
 from django.http import HttpResponseRedirect, HttpResponse,JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.views.generic import TemplateView, DetailView, ListView
 from django.urls import reverse, reverse_lazy
 from .models import Post
 from .forms import PostForm
+from django.utils import timezone
 
 
 class PostFormView(View):
@@ -20,11 +21,23 @@ class PostFormView(View):
         form = self.form_class(request.POST, request.FILES)
         
         if form.is_valid():
-            form.save()
-            # return HttpResponseRedirect(reverse_lazy('post:image_display', kwargs={'pk': obj.id}))
-            pm=form.cleaned_data.get("payment_method")
-            if pm=="Khalti":
-                return redirect(reverse("post:khaltirequest"))
+            p = Post()
+            data = form.cleaned_data
+            p.province = request.POST.get('province')
+            p.district = request.POST.get('district')
+            p.owners_name=data['owners_name']
+            p.Address=data['Address']
+            p.contact_number=data['contact_number']
+            p.location=data['location']
+            p.amount=data['amount']
+            p.length=data['length']
+            p.Area=data['Area']
+            p.image1=data['image1']
+            p.image2=data['image2']
+            p.image3=data['image3']
+            p.image4 = data['image4']
+            p.payment_verification_slip = data['payment_verification_slip']
+            p.save()
             return redirect('/post/success/')
         return render(request, self.template_name, {'form': form})
 
@@ -38,17 +51,45 @@ class ImageDisplay(DetailView):
 class Post_List_outside(ListView):
     model = Post
     template_name = 'post_list_outside.html'
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 class Post_List_authenticated(ListView):
     model=Post
     template_name='post_list_authenticated.html'
 
-class PostDetailView(ListView):
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+
+class PostDetailAuthenticatedView(ListView):
     model = Post
-    template_name = 'postdetail.html'    
+    template_name = 'postdetailauthenticated.html'   
+
+class PostDetailOutsideView(ListView):
+    model = Post
+    template_name = 'postdetailoutside.html'  
 
 class PostSuccess(TemplateView):
     template_name = 'post_success.html'
+
+
+class DraftListView(ListView):
+    model = Post
+    template_name = 'post_draft_list.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__isnull=True).order_by('created_date')
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'post_detail.html'
+
+
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.publish()
+    return redirect('post:post_list_authenticated')
 
 class KhaltiRequestView(View):
     def get(self,request,*args,**kwargs):
