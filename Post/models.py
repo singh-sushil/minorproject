@@ -1,6 +1,7 @@
 from django.db import models
 from phone_field import PhoneField
 from django.core.validators import RegexValidator
+from django.utils import timezone
 # Create your models here.
 
 METHOD={
@@ -25,6 +26,13 @@ class Post(models.Model):
     image4 = models.ImageField(upload_to='images/', default=True)
     payment_verification_slip= models.ImageField(upload_to='images/',default="True")
     
+    created_date = models.DateTimeField(
+        default=timezone.now, blank=True, null=True)
+    published_date = models.DateTimeField(blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
 
     def __str__(self):
         return self.owners_name
