@@ -12,15 +12,15 @@
     <h1><a class="navbar-brand mynav" href="{% url 'homepage' %}">Go Home</a></h1>
     <h4>Name: {{ post.owners_name }}</h4>
     <h4>Address: {{ post.Address }}</h4>
-    <h4>Phone Number: {{ post.phone_number }}</h4>
+    <h4>Phone Number: {{ post.contact_number }}</h4>
     <h4>Google location Url: {{ post.location }}</h4>
     <h4>Amount: Rs {{ post.amount }}</h4>
     <h4>Property Length: {{ post.length }}</h4>
     <h4>Property Breadth: {{ post.Area }}</h4>
-    <img src="{{post.image1.url}}" alt="img" width="260" height="200">
-    <img src="{{ post.image2.url }}" alt="img" width="260" height="200">
-    <img src="{{ post.image3.url }}" alt="img" width="260" height="200">
-    <img src="{{ post.image4.url }}" alt="img" width="260" height="200">
+    <img src="{{post.frontview.url}}" alt="img" width="260" height="200">
+    <img src="{{ post.leftsideview.url }}" alt="img" width="260" height="200">
+    <img src="{{ post.backsideview.url }}" alt="img" width="260" height="200">
+    <img src="{{ post.rightsideview.url }}" alt="img" width="260" height="200">
     </ul>
     {% if object.published_date %}
     <h1>Status:Published</h1>

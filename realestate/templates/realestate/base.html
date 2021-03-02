@@ -114,14 +114,14 @@
                             <li><a href="/chat/{{ uid }}" class="active">Contact</a></li>
                         
                             {% endif %}
-                            {% if  user.is_superuser %}
+                            {% if not user.is_superuser %}
                         <li><a href="{% url 'post:postform' %}" class="active">Post</a></li>
                             {% endif %}
                         <li><a href="{% url 'post:post_list_authenticated' %}" class="active">See Post</a></li>
                         {% if user.is_superuser %}
                         <li><a href="{% url 'post:post_draft_list' %}" class="active">Draft List</a></li>
                         {% endif%}
-                        {% if user.is_superuser %}
+                        {% if not user.is_superuser %}
                         <li><a href="{% url 'feedback:myformview' %}" class="active">Give Feedback</a></li>
                         {% endif %}
                         <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
