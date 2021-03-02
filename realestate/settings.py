@@ -79,18 +79,15 @@ ASGI_APPLICATION = 'realestate.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
-<<<<<<< HEAD
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [('127.0.0.1', 6379)],
         },
-=======
         #'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        "BACKEND": "channels.layers.InMemoryChannelLayer",
+       # "BACKEND": "channels.layers.InMemoryChannelLayer",
         #'CONFIG': {
         #    "hosts": [('127.0.0.1', 6379)],
         #},
->>>>>>> 86ccd745649ad54b3029d3a2f439bc01f885bcd7
     },
 }
 
