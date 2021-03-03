@@ -38,15 +38,27 @@
     <h4>Amount: Rs {{ post.amount }}</h4>
     <h4>Property Length: {{ post.length }} m</h4>
     <h4>Property Area: {{ post.Area }} sq.m</h4>
-    <img src="{{post.frontview.url}}" alt="img" width="405" height="300">
-    <img src="{{ post.leftsideview.url }}" alt="img" width="405" height="300">
-    <img src="{{ post.backsideview.url }}" alt="img" width="405" height="300">
-    <img src="{{ post.rightsideview.url }}" alt="img" width="405" height="300">
+    <img src="{{post.frontview.url}}" alt="img" width="350" height="300">
+    <img src="{{ post.leftsideview.url }}" alt="img" width="350" height="300">
+    <img src="{{ post.backsideview.url }}" alt="img" width="350" height="300">
+    <img src="{{ post.rightsideview.url }}" alt="img" width="350" height="300">
     <br>
     {% if user.is_superuser %}
     <h2>Payment Verification Slip!</h2>
     <br>
     <img src="{{ post.payment_verification_slip.url }}" alt="img" width="405" height="300">
+    <br><br>
+    <h2>Citizenship Photo!</h2>
+    <br>
+    <img src="{{ post.citizenship_photo.url }}" alt="img" width="405" height="300">
+    <br><br>
+    <h2>Land Ownshership Photo!</h2>
+    <br>
+    <img src="{{ post.land_ownership_document_photo.url }}" alt="img" width="405" height="300">
+    <br><br>
+    <h2>Land Record Lookup Map Photo!</h2>
+    <br>
+    <img src="{{ post.land_map_photo.url }}" alt="img" width="405" height="300">
     {% endif %}
     {% if object.published_date %}
     {% else %}

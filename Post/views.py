@@ -37,6 +37,9 @@ class PostFormView(View):
             p.backsideview=data['backsideview']
             p.rightsideview = data['rightsideview']
             p.payment_verification_slip = data['payment_verification_slip']
+            p.citizenship_photo=data['citizenship_photo']
+            p.land_ownership_document_photo=data['land_ownership_document_photo']
+            p.land_map_photo=data['land_map_photo']
             p.save()
             return redirect('/post/success/')
         return render(request, self.template_name, {'form': form})
