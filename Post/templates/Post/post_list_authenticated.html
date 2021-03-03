@@ -64,7 +64,7 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-             <a href="{% url 'post:post_detail' pk=post.pk %}"><img src="{{post.frontview.url}}" alt="img" width="1200px" height="600px" > </a> 
+             <a href="{% url 'post:post_detail' pk=post.pk %}"><img src="{{post.frontview.url}}" alt="img" width="100%" height="100px" > </a> 
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.owners_name }}</h4></li>
                     <li> <span class="fas fa-map-marker" style="font-weight: bold;font-size: large;"> {{ post.Address }}</span></li> 
@@ -74,7 +74,7 @@
             </div>
       
             <div class="item">
-              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.leftsideview.url }}" alt="img" width="1200px" height="600px" ></a>
+              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.leftsideview.url }}" alt="img" width="100%" height="100px" ></a>
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.owners_name }}</h4></li>
                <li> <span class="fas fa-map-marker" style="font-weight: bold;font-size: large;">  {{ post.Address }}</span></li>
@@ -85,7 +85,7 @@
           
             <div class="item">
               
-              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.backsideview.url }}" alt="img" width="1200px" height="600px" ></a>
+              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.backsideview.url }}" alt="img" width="100%" height="100px" ></a>
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.owners_name }}</h4></li>
                <li> <span class="fas fa-map-marker" style="font-weight: bold;font-size: large;">  {{ post.Address }}</span></li>
@@ -96,7 +96,7 @@
             
             <div class="item">
               
-              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.rightsideview.url }}" alt="img" width="1200px" height="600px"> </a> 
+              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.rightsideview.url }}" alt="img" width="100%" height="100px"> </a> 
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.owners_name }}</h4></li>
                <li> <span class="fas fa-map-marker" style="font-weight:bold;font-size: large;">  {{ post.Address }}</span></li>

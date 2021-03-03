@@ -3,6 +3,13 @@ from django.views.generic import CreateView, TemplateView
 from .forms import UserCreateForm
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
+from Post.models import Post
+from Post.forms import PostForm
+from django.utils import timezone
+# from django.db import connection as cn
+
+data = Post.objects.filter(
+    published_date__lte=timezone.now()).order_by('-published_date')
 
 class SignUp(CreateView):
     form_class = UserCreateForm
@@ -14,7 +21,7 @@ class Profile(TemplateView):
     template_name = 'profile.html'
 '''
 def profile(request):
-    return render (request,'profile.html',{'uid':request.user.id})
+    return render (request,'profile2.html',{'uid':request.user.id,'data':data})
 class MorangView(TemplateView):
     template_name = 'morang.html'
 

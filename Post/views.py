@@ -91,17 +91,17 @@ def post_publish(request, pk):
     post.publish()
     return redirect('post:post_list_authenticated')
 
-class KhaltiRequestView(View):
-    def get(self,request,*args,**kwargs):
-        context={
+# class KhaltiRequestView(View):
+#     def get(self,request,*args,**kwargs):
+#         context={
 
-        }
-        return render(request,"khaltirequest.html",context)
+#         }
+#         return render(request,"khaltirequest.html",context)
 
-class KhaltiVerifyView(View):
-    def get(self,request,*args,**kwargs):
-        data={}
-        return JsonResponse(data)
+# class KhaltiVerifyView(View):
+#     def get(self,request,*args,**kwargs):
+#         data={}
+#         return JsonResponse(data)
 
 
 class Post_List_Illam(ListView):
