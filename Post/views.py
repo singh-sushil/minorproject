@@ -37,6 +37,9 @@ class PostFormView(View):
             p.backsideview=data['backsideview']
             p.rightsideview = data['rightsideview']
             p.payment_verification_slip = data['payment_verification_slip']
+            p.citizenship_photo=data['citizenship_photo']
+            p.land_ownership_document_photo=data['land_ownership_document_photo']
+            p.land_map_photo=data['land_map_photo']
             p.save()
             return redirect('/post/success/')
         return render(request, self.template_name, {'form': form})
@@ -81,33 +84,27 @@ class DraftListView(ListView):
         return Post.objects.filter(published_date__isnull=True).order_by('created_date')
 
 
-'''
 class PostDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
-'''
 
-def PostDetailView(request ,pk):
-    socket_id = str(request.user.id)+str(pk)
-    socket_id = int(socket_id)
-    return render(request,'post_detail.html',{'uid':socket_id})
 
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.publish()
     return redirect('post:post_list_authenticated')
 
-class KhaltiRequestView(View):
-    def get(self,request,*args,**kwargs):
-        context={
+# class KhaltiRequestView(View):
+#     def get(self,request,*args,**kwargs):
+#         context={
 
-        }
-        return render(request,"khaltirequest.html",context)
+#         }
+#         return render(request,"khaltirequest.html",context)
 
-class KhaltiVerifyView(View):
-    def get(self,request,*args,**kwargs):
-        data={}
-        return JsonResponse(data)
+# class KhaltiVerifyView(View):
+#     def get(self,request,*args,**kwargs):
+#         data={}
+#         return JsonResponse(data)
 
 
 class Post_List_Illam(ListView):

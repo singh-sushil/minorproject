@@ -80,12 +80,8 @@ ASGI_APPLICATION = 'realestate.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
         #'BACKEND': 'channels_redis.core.RedisChannelLayer',
-       # "BACKEND": "channels.layers.InMemoryChannelLayer",
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
         #'CONFIG': {
         #    "hosts": [('127.0.0.1', 6379)],
         #},
@@ -100,6 +96,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
+        # 'NAME': 'connectmysql',
+        # 'USER':'root',
+        # 'PASSWORD':'',
+        # 'HOST':'localhost',
+        # 'PORT':'3306',
     }
 }
 

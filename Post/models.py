@@ -27,6 +27,9 @@ class Post(models.Model):
     backsideview = models.ImageField(upload_to='images/', default=True)
     rightsideview = models.ImageField(upload_to='images/', default=True)
     payment_verification_slip= models.ImageField(upload_to='images/',default=True)
+    citizenship_photo= models.ImageField(upload_to='images/',null=True,blank=True)
+    land_ownership_document_photo = models.ImageField(upload_to='images/',null=True,blank=True)
+    land_map_photo = models.ImageField(upload_to='images/',null=True,blank=True)
     
     created_date = models.DateTimeField(
         default=timezone.now, blank=True, null=True)
