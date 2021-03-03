@@ -7,44 +7,36 @@
   <title>Posts From the customer!!! </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link href="{% static 'css/post.css' %}" type="text/css" rel="Stylesheet" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/95dc93da07.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<br>
-
-<ul>
-
-
-
-
-
   <body>
-    <div id="header-hero-container">
-      <header>
-        <div class="flex container">
-          <a href="index.html"><img src="{% static 'images/logo.jpeg' %}" alt="logo" style="width:70px;"></a>
-          <nav>
-
-
-            <ul id="nav-menu">
-              <li><a href="{% url 'homepage' %}" class="active" style="font-weight: bold;font-size: large;">Home</a>
-              </li>
-              <li><a href="{% url 'feedback:myformview' %}" class="active"
-                  style="font-weight: bold;font-size: large;"></a></li>
-              <li><a href="{% url 'feedback:feedback_list' %}" class="active"
-                  style="font-weight: bold;font-size: large;">See Feedback</a></li>
-              <li><a href="{% url 'accounts:login' %}" class="active"
-                  style="font-weight: bold;font-size: large;">Login</a></li>
-              <li><a href="{% url 'accounts:signup' %}" class="active" style="font-weight: bold;font-size: large;">Sign
-                  up</a></li>
-
-            </ul>
-          </nav>
-        </div>
-      </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li><a class="navbar-brand " href="">Welcome : {{user.username}}</a></li>
+          <li><a class="navbar-brand " href="{% url 'homepage' %}">Home</a></li>
+          {% else %}
+          <li><a class="navbar-brand " href="{% url 'homepage' %}">Home</a></li>
+          {% endif %}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'post:postform' %}" class="navbar-brand ">Post</a></li>
+          <li><a href="{% url 'accounts:logout' %}" class="navbar-brand ">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'accounts:login' %}" class="navbar-brand">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <br>
 
       <h1 style="text-align: center;">POST FROM CUTOMERS!!!</h1>
       {% for post in object_list %}

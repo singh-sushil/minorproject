@@ -155,55 +155,16 @@
         <div class="container">
             <h2>Properties</h2>
             <div id="properties-slider" class="slick">
+            {% for i in data %}
                 <div>
-                    <img src="{% static "images/aa121e2010448532595792934d72e517.jpg" %}" alt="Property 1" />
+                    <a href="{% url 'post:post_detail' pk=i.id %}"><img src="{{i.frontview.url}}" alt="img" width="700" height="350"></a>
                     <div class="property-details">
-                        <span class="fas fa-map-marker"> Tinkune,Kathmandu</span>
-                      <p class="price">Rs.34,00,00,000</p>
-                      <span class="sqft">4,250 sqft.</span>
+                        <span class="fas fa-map-marker">{{i.Address}}</span>
+                      <p class="price">Rs.{{i.amount}}</p>
+                      <span class="sqft">{{i.Area}} sqft.</span>
                     </div>
                 </div>
-
-                
-
-                <div>
-                    <img src="{% static "images/istockphoto-1026205392-612x612.jpg" %}" alt="Property 1" />
-                    <div class="property-details">
-                        <span class="fas fa-map-marker"> Chitwan-2,Nepal</span>
-                        <p class="price">Rs.3,40,00,000</p>
-                        
-                        <span class="sqft">7,250 sqft.</span>
-                    </div>
-                </div>
-
-                <div>
-                    <img src="{% static "images/original_2244.jpg" %}" alt="Property 1" />
-                    <div class="property-details">
-                        <span class="fas fa-map-marker"> Lamachaur-16,Pokhara</span>
-                            <p class="price">Rs.2,400,000</p>
-                            <span class="sqft">4,250 sqft.</span>
-                    </div>
-                </div>
-
-                <div>
-                    <img src="{% static "images/photo-1560026301-88340cf16be7.jpg" %}" alt="Property 1" />
-                    <div class="property-details">
-                        <span class="fas fa-map-marker">Nayathimi,Bhaktapur</span>
-                          <p class="price">Rs.5,40,00,000</p>
-                          
-                          <span class="sqft">7,250 sqft.</span>
-                    </div>
-                </div>
-
-                <div>
-                    <img src="{% static "images/sddefault.jpg" %}" alt="Property 1" />
-                    <div class="property-details">
-                        <span class="fas fa-map-marker"> Siraha-6,Nepal</span>
-                        <p class="price">$40,00,000</p>
-                        
-                        <span class="sqft">1,250 sqft.</span>
-                    </div>
-                </div>
+            {% endfor %}
             </div>
 
          <a href="{% url 'post:post_list_authenticated' %}">  <button class="rounded">View All Property Listings</button> </a>
