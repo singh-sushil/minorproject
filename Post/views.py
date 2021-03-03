@@ -87,8 +87,8 @@ class PostDetailView(DetailView):
     template_name = 'post_detail.html'
 '''
 
-def PostDetailView(request ,Primary_key):
-    socket_id = str(request.user.id)+str(Primary_key)
+def PostDetailView(request ,pk):
+    socket_id = str(request.user.id)+str(pk)
     socket_id = int(socket_id)
     return render(request,'post_detail.html',{'uid':socket_id})
 
