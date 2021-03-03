@@ -34,17 +34,18 @@
             </div>
         </nav>
     <div class="jumbotron" style="margin-left: 150px;margin-right: 150px;margin-top: 70px;">
-{% if user.is_superuser %}
-<h1 style="text-align: center;">Draft List</h1>
-{% for post in object_list %}
-<div class="post">
-    <h1 style="text-align: center;"><a href="{% url 'post:post_detail' pk=post.pk %}">{{ post.owners_name }}</a></h1>
-    <p class="date" style="text-align: center;">created: {{ post.created_date|date:'d-m-Y'}}</p>
-    <p>{{ post.text|truncatechars:200 }}</p>
-</div>
+        {% if user.is_superuser %}
+        <h1 style="text-align: center;">Draft List</h1>
+        {% for post in object_list %}
+        <div class="post">
+            <h1 style="text-align: center;"><a href="{% url 'post:post_detail' pk=post.pk %}">{{ post.owners_name }}</a></h1>
+            <p class="date" style="text-align: center;">created: {{ post.created_date|date:'d-m-Y'}}</p>
+            <p>{{ post.text|truncatechars:200 }}</p>
+        </div>
+        {% endfor %}
     </div>
     
-    {% endfor %}
+    
     {% else %}
     <h1>Not Allowed : Admin Site Only!!!</h1>
     {% endif %}
