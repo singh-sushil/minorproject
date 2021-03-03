@@ -103,3 +103,112 @@ class KhaltiVerifyView(View):
         data={}
         return JsonResponse(data)
 
+
+class Post_List_Illam(ListView):
+    model = Post
+    template_name = 'illam.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Illam").order_by('-published_date')
+
+
+class Post_List_Jhapa(ListView):
+    model = Post
+    template_name = 'jhapa.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Jhapa").order_by('-published_date')
+
+
+class Post_List_Saptari(ListView):
+    model = Post
+    template_name = 'saptari.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Saptari").order_by('-published_date')
+
+class Post_List_Siraha(ListView):
+    model = Post
+    template_name = 'siraha.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Siraha").order_by('-published_date')
+
+
+class Post_List_Chitwan(ListView):
+    model = Post
+    template_name = 'chitwan.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Chitwan").order_by('-published_date')
+
+
+class Post_List_Kathmandu(ListView):
+    model = Post
+    template_name = 'kathmandu.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Kathmandu").order_by('-published_date')
+
+
+class Post_List_Kaski(ListView):
+    model = Post
+    template_name = 'kaski.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Kaski").order_by('-published_date')
+
+
+class Post_List_Tanahun(ListView):
+    model = Post
+    template_name = 'tanahun.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Tanahun").order_by('-published_date')
+
+
+class Post_List_Palpa(ListView):
+    model = Post
+    template_name = 'palpa.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Palpa").order_by('-published_date')
+    
+
+class Post_List_Rupendehi(ListView):
+    model = Post
+    template_name = 'rupendehi.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Rupendehi").order_by('-published_date')
+
+
+class Post_List_Dolpa(ListView):
+    model = Post
+    template_name = 'dolpa.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Dolpa").order_by('-published_date')
+
+class Post_List_Humla(ListView):
+    model = Post
+    template_name = 'humla.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Humla").order_by('-published_date')
+
+
+class Post_List_Darchula(ListView):
+    model = Post
+    template_name = 'darchula.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Darchula").order_by('-published_date')
+
+
+class Post_List_Kailali(ListView):
+    model = Post
+    template_name = 'kailali.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now()).filter(district="Kailali").order_by('-published_date')

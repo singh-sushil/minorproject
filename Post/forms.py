@@ -14,9 +14,9 @@ class PostForm(forms.ModelForm):
             "amount",
             "length",
             "Area",
-            "image1",
-            "image2",
-            "image3",
-            "image4",
+            "frontview",
+            "leftsideview",
+            "backsideview",
+            "rightsideview",
             "payment_verification_slip",
         ]

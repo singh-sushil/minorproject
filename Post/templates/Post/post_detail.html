@@ -17,10 +17,10 @@
     <h4>Amount: Rs {{ post.amount }}</h4>
     <h4>Property Length: {{ post.length }}</h4>
     <h4>Property Breadth: {{ post.Area }}</h4>
-    <img src="{{post.image1.url}}" alt="img" width="260" height="200">
-    <img src="{{ post.image2.url }}" alt="img" width="260" height="200">
-    <img src="{{ post.image3.url }}" alt="img" width="260" height="200">
-    <img src="{{ post.image4.url }}" alt="img" width="260" height="200">
+    <img src="{{post.front-view.url}}" alt="img" width="260" height="200">
+    <img src="{{ post.leftsideview.url }}" alt="img" width="260" height="200">
+    <img src="{{ post.backsideview.url }}" alt="img" width="260" height="200">
+    <img src="{{ post.rightsideview.url }}" alt="img" width="260" height="200">
     </ul>
     {% if object.published_date %}
     <h1>Status:Published</h1>

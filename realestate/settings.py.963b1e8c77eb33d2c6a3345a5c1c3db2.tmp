@@ -62,7 +62,7 @@ TEMPLATES = [
                  BASE_DIR / 'locationandfeedback/templates/locationandfeedback',
                  BASE_DIR / 'accounts/templates/accounts',
                  BASE_DIR / 'Post/templates/Post',
-                 BASE_DIR / 'Post/templates/Categories', ],
+                 BASE_DIR / 'Post/templates/Post', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,12 +80,8 @@ ASGI_APPLICATION = 'realestate.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
         #'BACKEND': 'channels_redis.core.RedisChannelLayer',
-       # "BACKEND": "channels.layers.InMemoryChannelLayer",
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
         #'CONFIG': {
         #    "hosts": [('127.0.0.1', 6379)],
         #},
