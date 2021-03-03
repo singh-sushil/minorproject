@@ -13,23 +13,34 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<br>
-<ul>
   <body>
     <div id="header-hero-container">
       <header>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <!-- <a href="{% url 'homepage' %}"><img src="{% static 'images/logo.jpeg' %}" alt="logo" style="width:70px;"></a> -->
+            </div>
+            <ul class="nav navbar-nav">
+            <li><a href="{% url 'homepage' %}" class="active" style="font-weight: bold;font-size: large;">Home</a>
+           </ul></li>
+            <ul class="nav navbar-nav navbar-right">
+              
+              <li><a href="{% url 'accounts:contact' %}" class="active" style="font-weight: bold;font-size: large;">Contact</a></li>
+              <li><a href="{% url 'accounts:logout' %}" class="active" style="font-weight: bold;font-size: large;">Logout</a></li>
+            </ul>
+          </div>
+        </nav>
         <div class="flex container">
-          <a href="index.html"><img src="{% static 'images/logo.jpeg' %}" alt="logo" style="width:70px;"></a>
+          
           <nav>
             <ul id="nav-menu">
-              <li><a href="{% url 'homepage' %}" class="active" style="font-weight: bold;font-size: large;">Home</a>
-              </li>
-              <li><a href="{% url 'feedback:myformview' %}" class="active"
-                  style="font-weight: bold;font-size: large;">Give Feedback</a></li>
-              <li><a href="{% url 'feedback:feedback_list' %}" class="active"
-                  style="font-weight: bold;font-size: large;">See Feedback</a></li>
-              <li><a href="{% url 'accounts:logout' %}" class="active"
-                  style="font-weight: bold;font-size: large;">Logout</a></li>
+              
+            <!-- <li><a href="{% url 'feedback:myformview' %}" class="active"
+                  style="font-weight: bold;font-size: la  rge;">Give Feedback</a></li> -->
+              <!-- <li><a href="{% url 'feedback:feedback_list' %}" class="active"
+                  style="font-weight: bold;font-size: large;">See Feedback</a></li> -->
+              
               <!-- <li><a href="{% url 'accounts:signup' %}" class="active" style="font-weight: bold;font-size: large;">Sign
                   up</a></li> -->
 
@@ -38,7 +49,7 @@
         </div>
       </header>
 
-      <h1 style="text-align: center;">POST FROM CUTOMERS!!!</h1>
+      <h1 style="text-align: center;">All List</h1>
       {% for post in object_list %}
       <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -53,44 +64,44 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-             <a href="{% url 'post:post_detail' pk=post.pk %}"><img src="{{post.image1.url}}" alt="img" width="100%" > </a> 
+             <a href="{% url 'post:post_detail' pk=post.pk %}"><img src="{{post.frontview.url}}" alt="img" width="1200px" height="600px" > </a> 
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.owners_name }}</h4></li>
                     <li> <span class="fas fa-map-marker" style="font-weight: bold;font-size: large;"> {{ post.Address }}</span></li> 
                       
-                      <span class="fas fa-rupee-sign" style="font-weight: bold;font-size: large;"> Rs.34,00,00,000</span>
+                      <span class="fas fa-rupee-sign" style="font-weight: bold;font-size: large;"> Rs.{{ post.amount }}</span>
                     </div>
             </div>
       
             <div class="item">
-              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.image2.url }}" alt="img" width="100%" ></a>
+              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.leftsideview.url }}" alt="img" width="1200px" height="600px" ></a>
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.owners_name }}</h4></li>
                <li> <span class="fas fa-map-marker" style="font-weight: bold;font-size: large;">  {{ post.Address }}</span></li>
              
-                <span class="fas fa-rupee-sign" style="font-weight: bold;font-size: large;"> Rs.4,00,00,000</span>
+                <span class="fas fa-rupee-sign" style="font-weight: bold;font-size: large;"> Rs.{{ post.amount }}</span>
               </div>
             </div>
           
             <div class="item">
               
-              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.image3.url }}" alt="img" width="100%" ></a>
+              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.backsideview.url }}" alt="img" width="1200px" height="600px" ></a>
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.owners_name }}</h4></li>
                <li> <span class="fas fa-map-marker" style="font-weight: bold;font-size: large;">  {{ post.Address }}</span></li>
                
-                <span class="fas fa-rupee-sign" style="font-weight: bold;font-size: large;"> Rs.84,00,00,000</span>
+                <span class="fas fa-rupee-sign" style="font-weight: bold;font-size: large;">Rs.{{ post.amount }}</span>
               </div>
             </div>
             
             <div class="item">
               
-              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.image4.url }}" alt="img" width="100%"> </a> 
+              <a href="{% url 'post:post_detail' pk=post.pk %}"> <img src="{{ post.rightsideview.url }}" alt="img" width="1200px" height="600px"> </a> 
               <div class="carousel-caption">
                 <li ><h4>Name: {{ post.owners_name }}</h4></li>
                <li> <span class="fas fa-map-marker" style="font-weight:bold;font-size: large;">  {{ post.Address }}</span></li>
                
-                <span class="fas fa-rupee-sign" style="font-weight: bold;font-size: large;"> Rs.44,00,00,000</span>
+                <span class="fas fa-rupee-sign" style="font-weight: bold;font-size: large;"> Rs.{{ post.amount }}</span>
               </div>
            </div>
           </div>

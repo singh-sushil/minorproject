@@ -1,23 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post Draft List</title>
+    <link href="{% static 'css/post.css' %}" type="text/css" rel="Stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/95dc93da07.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<body><div id="header-hero-container">
+    <header>
+        <nav class="navbar navbar-inverse" style="margin-top: 10px;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!-- <a href="{% url 'homepage' %}"><img src="{% static 'images/logo.jpeg' %}" alt="logo" style="width:70px;"></a> -->
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'homepage' %}" class="active"
+                            style="font-weight: bold;font-size: large;">Home</a>
+                </ul>
+                </li>
+                <ul class="nav navbar-nav navbar-right">
 
-<body>
-    {% if user.is_superuser %}
-    <h1>Draft List</h1>
-    {% for post in object_list %}
-    <div class="post">
-        <h1><a href="{% url 'post:post_detail' pk=post.pk %}">{{ post.owners_name }}</a></h1>
-        <p class="date">created: {{ post.created_date|date:'d-m-Y'}}</p>
-        <p>{{ post.text|truncatechars:200 }}</p>
+                    <li><a href="{% url 'accounts:contact' %}" class="active"
+                            style="font-weight: bold;font-size: large;">Contact</a></li>
+                    <li><a href="{% url 'accounts:logout' %}" class="active"
+                            style="font-weight: bold;font-size: large;">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    <div class="jumbotron" style="margin-left: 150px;margin-right: 150px;margin-top: 70px;">
+        {% if user.is_superuser %}
+        <h1 style="text-align: center;">Draft List</h1>
+        {% for post in object_list %}
+        <div class="post">
+            <h1 style="text-align: center;"><a href="{% url 'post:post_detail' pk=post.pk %}">{{ post.owners_name }}</a></h1>
+            <p class="date" style="text-align: center;">created: {{ post.created_date|date:'d-m-Y'}}</p>
+            <p>{{ post.text|truncatechars:200 }}</p>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+    
+    
     {% else %}
     <h1>Not Allowed : Admin Site Only!!!</h1>
     {% endif %}

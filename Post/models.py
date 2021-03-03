@@ -26,7 +26,7 @@ class Post(models.Model):
     leftsideview = models.ImageField(upload_to='images/', default=True)
     backsideview = models.ImageField(upload_to='images/', default=True)
     rightsideview = models.ImageField(upload_to='images/', default=True)
-    payment_verification_slip= models.ImageField(upload_to='images/',default="True")
+    payment_verification_slip= models.ImageField(upload_to='images/',default=True)
     
     created_date = models.DateTimeField(
         default=timezone.now, blank=True, null=True)
