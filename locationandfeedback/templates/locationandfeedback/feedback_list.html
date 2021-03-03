@@ -1,0 +1,11 @@
+{% block content %}
+    <h1>Some of the Feedbacks </h1>
+    <br>
+    <ul>
+        {% for feedback in object_list %}
+            <ul>
+                <li><h2>{{ feedback.feedback_text }}</h2></li>
+            </ul>
+        {% endfor %}
+    </ul>
+{% endblock %}

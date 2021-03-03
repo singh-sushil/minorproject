@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details about post</title>
+    <link href="{% static 'css/postdetail.css' %}" type="text/css" rel="Stylesheet" />
+  
+</head>
+<body>
+  
+              <div id="header-hero-container">
+                <header>
+                    <div class="flex container">
+                      <a href="{% url 'homepage' %}" ><img src="{% static "images/logo.jpeg" %}"  alt="logo" style="width:70px;"></a>
+                        <nav>
+
+
+                            <ul id="nav-menu">
+                                <li><a href="{% url 'homepage' %}" class="active" style="font-weight: bold;font-size: large;color: blue;">Home</a></li>
+                              
+                                <li><a href="{% url 'feedback:feedback_list' %}" class="active" style="font-weight: bold;font-size: large;color: blue;">See Feedback</a></li>
+                                <li><a href="{% url 'accounts:login' %}"  class="active" style="font-weight: bold;font-size: large;color: blue;">Login</a></li>
+                                <li><a href="{% url 'accounts:signup' %}"  class="active" style="font-weight: bold;font-size: large;color: blue;">Sign up</a></li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </header> 
+  {% for post in object_list %}
+  
+                        <div class="container">     
+          
+                            <div class="column">
+                             <img src="{{post.image1.url}}" alt="img" width="100%" >
+                            </div>
+                                  <div class="column">
+                                    <img src="{{ post.image2.url }}" alt="img" width="100%" >
+                                  </div>
+                            
+                                  <div class="column">
+                                
+                                <img src="{{ post.image3.url }}" alt="img" width="100%" >
+                              </div>
+                              
+                              <div class="column">
+                                
+                                <img src="{{ post.image4.url }}" alt="img" width="100%">    
+                             </div>
+                            </div>
+                    
+      
+            <ul >
+                <li ><h4>Name: {{ post.Name }}</h4></li>
+                <li><h4>Address: {{ post.Address }}</h4></li>
+                <li><h4>Phone Number: {{ post.phone_number }}</h4></li>
+                <li><h4>Google location Url: {{ post.url_location }}</h4></li>
+                <li><h4>Amount: Rs {{ post.amount }}</h4></li>
+                <li><h4>Property Length: {{ post.length }}</h4></li>
+                <li><h4>Property Breadth: {{ post.breadth }}</h4></li>
+            
+              </ul>
+            
+      
+        {% endfor %}
+</body>
+</html>
