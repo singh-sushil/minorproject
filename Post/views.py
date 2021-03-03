@@ -81,10 +81,16 @@ class DraftListView(ListView):
         return Post.objects.filter(published_date__isnull=True).order_by('created_date')
 
 
+'''
 class PostDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
+'''
 
+def PostDetailView(request ,Primary_key):
+    socket_id = str(request.user.id)+str(Primary_key)
+    socket_id = int(socket_id)
+    return render(request,'post_detail.html',{'uid':socket_id})
 
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
