@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load bootstrap3 %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +15,10 @@
                 <h3>Your Feedback</h3>
                 <br>
                 <form  method="post">
+
                     {% csrf_token %}
+                    
+
                     <label for="rateapp">Rate out of 10:</label>
                     <select name='rateapp'  id="rateapp">
                         <option value="10">10</option>
@@ -29,7 +33,7 @@
                         <option value="1">1</option>
                       </select>
                       <br>
-                    {{ form }}
+                    {% bootstrap_form form %}
                     <br>
                     <input type="submit" class="btn btn-primary" value="Submit">
                 </form>

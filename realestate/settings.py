@@ -61,7 +61,8 @@ TEMPLATES = [
         'DIRS': [BASE_DIR / 'realestate/templates/realestate',
                  BASE_DIR / 'locationandfeedback/templates/locationandfeedback',
                  BASE_DIR / 'accounts/templates/accounts',
-                 BASE_DIR / 'Post/templates/Post', ],
+                 BASE_DIR / 'Post/templates/Post',
+                 BASE_DIR / 'Post/templates/Categories', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,10 +80,11 @@ ASGI_APPLICATION = 'realestate.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
+        #'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+        #'CONFIG': {
+        #    "hosts": [('127.0.0.1', 6379)],
+        #},
     },
 }
 
@@ -94,6 +96,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
+        # 'NAME': 'connectmysql',
+        # 'USER':'root',
+        # 'PASSWORD':'',
+        # 'HOST':'localhost',
+        # 'PORT':'3306',
     }
 }
 

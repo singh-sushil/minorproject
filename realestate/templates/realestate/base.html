@@ -28,6 +28,9 @@
                     </button>
 
                     <ul id="nav-menu">
+                        {% if user.is_authenticated %}
+                        <li><a href="" class="active">Welcome : {{ user.username }}</a></li>
+                        {% endif %}
                         <li><a href="{% url 'homepage' %}" class="active">Home</a></li>
                         <li>
                             <div class="dropdown">
@@ -37,36 +40,72 @@
                                 
                                 <div class="dropdown-content">
                                     <div class="first-dropdown active">
-                                        <a style="font-size:medium" href="#">Pradesh 1
+                                        <a style="font-size:medium" href="#">Pradesh No.1
                                             <i class="fa fa-caret-right"></i>
                                         </a>
                                         <div  class="dropdown1-submenu">
-                                            <a href="{% url 'accounts:morang' %}">morang</a>
-                                            <a href="#"> Sunsari</a>
+                                            <a href="{% url 'post:illam' %}">Illam</a>
+                                            <a href="{% url 'post:jhapa' %}"> Jhapa</a>
                                         </div>   
                                  </div>
                 
                               <div href="#" class="second-dropdown active">
-                                        <a style="font-size:medium" href="#">Pradesh 2
+                                        <a style="font-size:medium" href="#">Pradesh No.2
                                             <i class="fa fa-caret-right"></i>
                                         </a>
                                         <div class="dropdown2-submenu">
-                                            <a href="#"> Siraha</a>
-                                            <a href="#"> Saptari</a>
+                                            <a href="{% url 'post:saptari' %}"> Saptari</a>
+                                            <a href="{% url 'post:siraha' %}"> Siraha</a>
                                         </div>
                                 </div>
                                     <div href="#" class="second-dropdown active">
-                                        <a style="font-size:medium" href="#">Pradesh 3
+                                        <a style="font-size:medium" href="#">Bagmati Pradesh
                                             <i class="fa fa-caret-right"></i>
                                         </a>
                                         <div class="dropdown2-submenu">
-                                            <a href="#"> Chitwan</a>
-                                            <a href="#"> Kathmandu</a>
-                                        </div>  
+                                            <a href="{% url 'post:chitwan' %}">Chitwan</a>
+                                            <a href="{% url 'post:kathmandu' %}">Kathmandu</a>
+                                    </div>  
+                                </div>
+                                <div href="#" class="second-dropdown active">
+                                    <a style="font-size:medium" href="#">Gandaki Pradesh
+                                        <i class="fa fa-caret-right"></i>
+                                    </a>
+                                    <div class="dropdown2-submenu">
+                                        <a href="{% url 'post:kaski' %}">Kaski</a>
+                                        <a href="{% url 'post:tanahun' %}">Tanahun</a>
                                     </div>
+                                </div>
+                                <div href="#" class="second-dropdown active">
+                                    <a style="font-size:medium" href="#">Lumbini Pradesh
+                                        <i class="fa fa-caret-right"></i>
+                                    </a>
+                                    <div class="dropdown2-submenu">
+                                        <a href="{% url 'post:palpa' %}">Palpa</a>
+                                        <a href="{% url 'post:rupendehi' %}">Rupendehi</a>
+                                    </div>
+                                </div>
+                                <div href="#" class="second-dropdown active">
+                                    <a style="font-size:medium" href="#">Karnali Pradesh
+                                        <i class="fa fa-caret-right"></i>
+                                    </a>
+                                    <div class="dropdown2-submenu">
+                                        <a href="{% url 'post:dolpa' %}">Dolpa</a>
+                                        <a href="{% url 'post:humla' %}">Humla</a>
+                                    </div>
+                                </div>
+                                <div href="#" class="second-dropdown active">
+                                    <a style="font-size:medium" href="#">Sudurpaschim Pradesh
+                                        <i class="fa fa-caret-right"></i>
+                                    </a>
+                                    <div class="dropdown2-submenu">
+                                        <a href="{% url 'post:darchula' %}">Darchula</a>
+                                        <a href="{% url 'post:kailali' %}">Kailali</a>
+                                    </div>
+                                </div>
 
 
-                                        
+                                       
                         </li>
                         {% if user.is_authenticated %}
                             {% if user.is_superuser %}
@@ -75,16 +114,23 @@
                             <li><a href="/chat/{{ uid }}" class="active">Contact</a></li>
                         
                             {% endif %}
+                            {% if not user.is_superuser %}
                         <li><a href="{% url 'post:postform' %}" class="active">Post</a></li>
+                            {% endif %}
                         <li><a href="{% url 'post:post_list_authenticated' %}" class="active">See Post</a></li>
-                        <li><a href="{% url 'feedback:myformview' %}" class="active">Give Feedback</a></li>
-                        <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
+                        {% if user.is_superuser %}
+                        <li><a href="{% url 'post:post_draft_list' %}" class="active">Draft List</a></li>
+                        {% endif%}
+                        {% if not user.is_superuser %}
+                        <!-- <li><a href="{% url 'feedback:myformview' %}" class="active">Give Feedback</a></li> -->
+                        {% endif %}
+                        <!-- <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li> -->
                         <li><a href="{% url 'accounts:logout' %}" class="active">Logout</a></li>
                         
     					{% else %}
                        
                         <li><a href="{% url 'post:post_list_outside' %}" class="active">See Post</a></li>
-                        <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li>
+                        <!-- <li><a href="{% url 'feedback:feedback_list' %}" class="active">See Feedback</a></li> -->
     						        <li><a href="{% url 'accounts:login' %}"  class="active">Login</a></li>
     						        <li><a href="{% url 'accounts:signup' %}"  class="active">Sign up</a></li>
     						{% endif %}
@@ -109,64 +155,25 @@
         <div class="container">
             <h2>Properties</h2>
             <div id="properties-slider" class="slick">
+            {% for i in data %}
                 <div>
-                    <img src="{% static "images/aa121e2010448532595792934d72e517.jpg" %}" alt="Property 1" />
+                    <a href="{% url 'post:post_detail' pk=i.id %}"><img src="{{i.frontview.url}}" alt="img" width="700" height="350"></a>
                     <div class="property-details">
-                        <span class="fas fa-map-marker"> Tinkune,Kathmandu</span>
-                      <p class="price">Rs.34,00,00,000</p>
-                      <span class="sqft">4,250 sqft.</span>
+                        <span class="fas fa-map-marker">{{i.Address}}</span>
+                      <p class="price">Rs.{{i.amount}}</p>
+                      <span class="sqft">{{i.Area}} sqft.</span>
                     </div>
                 </div>
-
-                
-
-                <div>
-                    <img src="{% static "images/istockphoto-1026205392-612x612.jpg" %}" alt="Property 1" />
-                    <div class="property-details">
-                        <span class="fas fa-map-marker"> Chitwan-2,Nepal</span>
-                        <p class="price">Rs.3,40,00,000</p>
-                        
-                        <span class="sqft">7,250 sqft.</span>
-                    </div>
-                </div>
-
-                <div>
-                    <img src="{% static "images/original_2244.jpg" %}" alt="Property 1" />
-                    <div class="property-details">
-                        <span class="fas fa-map-marker"> Lamachaur-16,Pokhara</span>
-                            <p class="price">Rs.2,400,000</p>
-                            <span class="sqft">4,250 sqft.</span>
-                    </div>
-                </div>
-
-                <div>
-                    <img src="{% static "images/photo-1560026301-88340cf16be7.jpg" %}" alt="Property 1" />
-                    <div class="property-details">
-                        <span class="fas fa-map-marker">Nayathimi,Bhaktapur</span>
-                          <p class="price">Rs.5,40,00,000</p>
-                          
-                          <span class="sqft">7,250 sqft.</span>
-                    </div>
-                </div>
-
-                <div>
-                    <img src="{% static "images/sddefault.jpg" %}" alt="Property 1" />
-                    <div class="property-details">
-                        <span class="fas fa-map-marker"> Siraha-6,Nepal</span>
-                        <p class="price">$40,00,000</p>
-                        
-                        <span class="sqft">1,250 sqft.</span>
-                    </div>
-                </div>
+            {% endfor %}
             </div>
 
-            <button class="rounded">View All Property Listings</button>
+         <a href="{% url 'post:post_list_authenticated' %}">  <button class="rounded">View All Property Listings</button> </a>
         </div>
     </section>
 
     
 
-    <section id="services">
+    <!-- <section id="services">
         <div class="container">
             <h2>Services</h2>
             <div class="flex">
@@ -174,28 +181,28 @@
                     <div class="fas fa-home"></div>
                     <div class="services-card-right">
                         <h3>Search Property</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                        <a href="#">Learn More</a>
+                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p> -->
+                        <!-- <a href="#">Learn More</a>
                     </div>
                 </div>
 
                 <div>
                     <div class="fas fa-dollar-sign"></div>
                     <div class="services-card-right">
-                        <h3>Buy Property</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                        <a href="#">Learn More</a>
+                        <h3>Buy Property</h3> -->
+                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p> -->
+                        <!-- <a href="#">Learn More</a>
                     </div>
-                </div>
+                </div> --> -->
 
-                <div>
+                <!-- <div>
                     <div class="fas fa-chart-line"></div>
                     <div class="services-card-right">
                         <h3>Investing</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                        <p></p>
                         <a href="#">Learn More</a>
                     </div>
-                </div>
+                </div> -->
 
                 
 
@@ -205,7 +212,7 @@
     </section>
 
 
-    <section id="contact">
+    <!-- <section id="contact">
         <div class="container">
             <h2>Contact Us</h2>
 
@@ -242,9 +249,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <footer>
+    <!-- <footer>
         <div class="flex container">
             <div class="footer-about">
                 <h5>About Kinbech</h5>
@@ -277,7 +284,7 @@
                 </ul>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
     <script>
         
