@@ -7,5 +7,5 @@ dynamic e-commerce website
 ##  uses
   * for buying and selling real estate.
 ##  license
-  this project is developed collaboratively by undergrad students namely Aman Mahaseth, Ashish Ghimire, Suraj Ale Magar, Sushil Kumar Singh(aka. sashi singh)
+  this project is developed collaboratively by undergrad students namely Aman Mahaseth, Aashish Ghimire, Suraj Ale Magar, Sushil Kumar Singh(aka. sashi singh)
   under supervision of Prof. Bishnu Hari Poudel and released under [MIT](https://choosealicense.com/licenses/mit/) license
